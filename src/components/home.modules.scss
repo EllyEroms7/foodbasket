@@ -1,0 +1,88 @@
+@import "../app/globals.scss";
+
+.video-bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    overflow: hidden;
+    video {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: brightness(85%);
+    }
+
+}
+
+.logo{
+    width: 26.375rem;
+    height: 8.9375rem;
+    padding: 20px;
+    opacity: .9;
+    margin:$size-base;
+    color: white;
+    background: transparentize($black,.6);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    transform: perspective(1000px) translateZ(20px);
+
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+    border: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.bar{
+    align-items: center;
+}
+
+.nave{
+    transform: scale(.9);
+    margin-right: calc($size-lg + .5rem);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    .naves p{
+        font-family: $roboto;
+        font-weight: 440;
+    }
+}
+
+.heading{
+    font-family: $suse;
+    color:rgb(226, 241, 255)
+}
+
+
+.catalogue:nth-child(1){
+    background-color: $primary-colour;
+    // padding: 1rem;
+    width: 246px;
+    height: 75px;
+    font-size: $size-base;
+    transform: translateY(-65%);
+    border-radius: 999px;
+    color:$white;
+    position:relative;
+    overflow: hidden;
+    &::after{
+        content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height:100%;
+        z-index: -1;
+        background-color: $secondary-colour;
+        transform:translateX(100%);
+        transition: transform .3s ease-in-out;
+    }
+    &:hover::after{
+        transform: translateX(0%);
+    }
+}
+
