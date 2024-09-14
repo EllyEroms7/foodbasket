@@ -1,4 +1,4 @@
-import HomeVideo from "@/components/home";
+import HomeVideo from "@/components/home/home";
 
 export default function Home() {
   return (
