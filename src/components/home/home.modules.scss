@@ -36,6 +36,7 @@
     padding: 2%;
     margin-block: auto;
     margin-right: 3%;
+    transition: background-color .3s ease-in-out;
 }
 .active.mobile-nav-button{
     background-color: $primary-colour;
@@ -99,7 +100,9 @@
 }
 
 .heading{
-    font-family: $suse;
+    font-family: $montserrat;
+    font-weight: 500;
+    // line-height: 1.2;
     color:rgb(236, 244, 252);
 }
 

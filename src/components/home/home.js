@@ -1,12 +1,16 @@
 'use client';
 import React, {useRef,useEffect,useState} from 'react';
+import Feature from './feature';
 import { Icon } from '@iconify/react';
 import './home.modules.scss';
+import { useSlide,useRotate } from '../hooks/useGsap';
 
 export default function HomeVideo() {
 
   const video = useRef(null);
   const [controls, setControl] = useState("icon-park-solid:play");
+  const [show, setShow] = useState(false);
+  // const ref = useRef(null);
  const navRef = useRef(null);
  const navButtonRef = useRef(null);
  const pause = () =>{
@@ -19,16 +23,22 @@ export default function HomeVideo() {
    }
   }
 
+  useSlide(navRef, show);
+  useRotate(navButtonRef,show)
+
+  
   const toggleNav = () => {
     if (navRef.current) {
       navRef.current.classList.toggle('active')
       navButtonRef.current.classList.toggle('active')
+      setShow(!show)
     }
   };
 
  return (
+  <>
     <div id="home">
-      <div className="container hero">
+      <div className="container">
         {/*Video background */}
             <video  autoPlay playsInline loop muted ref={video}>
               <source src="/video/intro.mp4" type="video/mp4"/>
@@ -73,7 +83,7 @@ export default function HomeVideo() {
                     <div className="catalogue desktop-nav-link">
                       <a href="">
                         <div className="icon">
-                      <Icon icon="cil:cart" width="30" height="30"  style={{color: "black"}} />
+                        <Icon icon="ant-design:product-outlined" width="30" height="30"  style={{color: "black"}} />
                       </div>
                       <p>Products</p>
                       </a>
@@ -90,15 +100,24 @@ export default function HomeVideo() {
                 {/* an a tag will be here */}
 
                 <div className="nav-link explore">
-                  <p>Explore</p>
+                  <a className="flex align-middle gap-[.7rem]" href="">
+                    <Icon icon="material-symbols-light:explore-outline" width="30" height="30"  style={{color: "black"}} />
+                    <p>Explore</p>
+                  </a>
                 </div>
 
                 <div className="nav-link contact">
-                  <p>Contact</p>
+                <a href="" className="flex align-middle gap-[.7rem]">
+                      <Icon icon="solar:phone-broken" width="30" height="30"  style={{color: "black"}} />
+                      <p>Contact</p>
+                  </a>
                 </div>
 
                 <div className="nav-link catalogue">
-                  <p>Products</p>
+                <a href="" className="flex gap-[.7rem] align-middle">
+                        <Icon icon="ant-design:product-outlined" width="30" height="30"  style={{color: "black"}} />
+                      <p>Products</p>
+                      </a>
                 </div>
               </div>
             </div>
@@ -106,7 +125,7 @@ export default function HomeVideo() {
 
           {/*heading*/}
           <header className="opacity-95" >
-            <h1 className="text-left mt-10 text-[4rem] heading px-3 ml-2">Every Great Taste Has Great Quality</h1>
+            <h1 className="text-left mt-3 text-[3rem] heading px-3 ml-2">Every <br/>Great <br/> Taste Has <br/>Great <br/> Quality</h1>
             <p className="text-left mt-2 text-[1.5rem] heading italic ml-6">Why Settle For Less?</p>
             
             <div className="heading controls rounded-full hover:bg-orange-500 transition-all active:bg-blue-700 text-center absolute opacity-95 right-[5%] bottom-[6%]" onClick={pause}>
@@ -124,7 +143,10 @@ export default function HomeVideo() {
               <p>View Catalogue</p>
             </button>
           </div>
+          {/* wave svg */}
         </div>
     </div>
+    <Feature/>
+    </>
   )
 }
