@@ -1,9 +1,11 @@
-import HomeVideo from "@/components/home/home";
+import Home from "@/components/home/home";
+import Feature from "@/components/home/feature";
 
-export default function Home() {
+export default function root() {
   return (
-   <div>
-      <HomeVideo/>
-   </div>
+   <>
+      <Home/>
+      <Feature/>
+   </>
   );
 }
