@@ -148,7 +148,6 @@
     }
   }
 
-  // mobile bento
   .mobile-bento{
     h1{
       font-size:clamp(2rem, 0rem + 10vw, 4rem);
@@ -163,7 +162,7 @@
       transition-timing-function: ease-in-out;
     }
     div:hover{
-      box-shadow: -7px -2px 10px 4px rgba(0, 0, 0, 0.353);
+      box-shadow: -7px -2px 10px 1px rgba(0, 0, 0, 0.253);
     }
   }
 }

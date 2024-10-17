@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.scss";
+import Contact from "../components/home/contact";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "Food Basket Confectionary Ventures",
-  description: "We deal with bread, cake and pastries",
+  description: "We sell with bread, cake and pastries",
 };
 
 export default function RootLayout({ children }) {
@@ -24,6 +25,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+
+        <Contact/>
       </body>
     </html>
   );
