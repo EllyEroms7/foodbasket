@@ -2,7 +2,7 @@
 
 #contact{
     div{
-        background-color: red;
+        background-color: rgb(185, 0, 0);
         padding: 2%;
         overflow: hidden;
     }
@@ -96,6 +96,7 @@
         font-weight: 600;
         -webkit-background-clip: text;
         background-clip: text;
+        position: relative;
         -webkit-text-fill-color: transparent;
         font-size: clamp(2rem, 1.143rem + 4.286vw, 5rem);
     }
@@ -111,3 +112,5 @@
         grid-template-columns: repeat(auto-fill,minmax(140%,1fr))
     }
 }
+
+

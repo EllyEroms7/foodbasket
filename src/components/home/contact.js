@@ -3,6 +3,7 @@ import React from 'react';
 import './contact.modules.scss';
 import { Icon } from '@iconify/react';
 
+
 export default function Contact() {
 
   const resizeArea = (event) => {
@@ -14,7 +15,7 @@ export default function Contact() {
         <div className="">
           <footer>
             <div className='connect'>
-              <h1>Connect with us </h1>
+              <h1 id='connects'>Connect with us </h1>
             </div> 
 
             <div className='grid foot'>
@@ -22,17 +23,17 @@ export default function Contact() {
               <div>
                 <form>
                   <div>
-                    <label for="Name">Your Name:</label>
+                    <label htmlFor="Name">Your Name:</label>
                     <input type='text' id="Name" placeholder='John Doe'
                     required/>
                   </div>
                   <div>
-                    <label for="Email">Your Email:</label>
+                    <label htmlFor="Email">Your Email:</label>
                     <input type="email" required id="Email" placeholder='Johndoe@email.com'/>
                   </div>
 
                   <div>
-                    <label for="Question">Share Your Thoughts:</label>
+                    <label htmlFor="Question">Share Your Thoughts:</label>
                     <textarea onInput={resizeArea} placeholder='... We are the best' required></textarea>
                   </div>
 
@@ -46,13 +47,17 @@ export default function Contact() {
                 </div>
 
                 <div className='flex gap-[2rem]'>
-                  <div className='whatsapp hover:scale-[1.2] transition-transform'>
-                  <Icon icon="mdi:whatsapp" width="3rem" height="3rem"  style={{color: 'white'}} />
-                  </div>
+                  <a href='https://wa.link/xb7yqg' target='blank'>
+                    <div className='whatsapp hover:scale-[1.2] transition-transform'>
+                    <Icon icon="mdi:whatsapp" width="3rem" height="3rem"  style={{color: 'white'}} />
+                    </div>
+                  </a>
 
+                <a href="https://www.instagram.com/foodbasket_1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target='blank'>
                   <div className='instagram hover:scale-[1.2] transition-transform'>
                   <Icon icon="hugeicons:instagram" width="3rem" height="3rem"  style={{color: 'white'}} />
                   </div>
+                </a>
                 </div>
               </div>
             </div>

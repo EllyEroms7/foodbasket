@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.scss";
 import Contact from "../components/home/contact";
+import Smooth from '@/components/smooth';
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,8 +26,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Smooth>
         {children}
-
+        </Smooth>
         <Contact/>
       </body>
     </html>
