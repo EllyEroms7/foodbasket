@@ -1,72 +1,68 @@
 'use client';
-import React from 'react';
-import './contact.modules.scss';
+import React, { useRef } from 'react';
+import './styles/contact.modules.scss';
 import { Icon } from '@iconify/react';
+import Form from './form';
+import ContactHeader from './contactHeader';
 
 
 export default function Contact() {
 
-  const resizeArea = (event) => {
-    event.target.style.height = `${event.target.scrollHeight}px`;
+  const copyRef = useRef(null);
+
+  const copying = async () => {
+    const text = '+2349077630593';
+    try {
+      await navigator.clipboard.writeText(text);
+      copyRef.current.classList.remove('opacity-0')
+      setTimeout(() => { copyRef.current.classList.add('opacity-0') }, 3000)
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
   }
 
   return (
     <div id="contact">
-        <div className="">
-          <footer>
-            <div className='connect'>
-              <h1 id='connects'>Connect with us </h1>
-            </div> 
+      <div className="">
+        <footer>
 
-            <div className='grid foot'>
+          <ContactHeader />
+
+          <div className='grid foot'>
             {/* forms */}
+            {/* address */}
+            <div>
               <div>
-                <form>
-                  <div>
-                    <label htmlFor="Name">Your Name:</label>
-                    <input type='text' id="Name" placeholder='John Doe'
-                    required/>
-                  </div>
-                  <div>
-                    <label htmlFor="Email">Your Email:</label>
-                    <input type="email" required id="Email" placeholder='Johndoe@email.com'/>
-                  </div>
-
-                  <div>
-                    <label htmlFor="Question">Share Your Thoughts:</label>
-                    <textarea onInput={resizeArea} placeholder='... We are the best' required></textarea>
-                  </div>
-
-                  <input type="submit" value="Send" />
-                </form>
+                <address>Plot 4, Block IX, Mainland Park Estates, Lagos-Ibadan Expressway, Mowe, Ogun State, Nigeria.</address>
               </div>
 
-              <div>
-                <div>
-                  <address>Mainland Park Estates, Lagos-Ibadan Expressway, Mowe, Plot 4, Block IX, Ogun State</address>
-                </div>
-
-                <div className='flex gap-[2rem]'>
-                  <a href='https://wa.link/xb7yqg' target='blank'>
-                    <div className='whatsapp hover:scale-[1.2] transition-transform'>
-                    <Icon icon="mdi:whatsapp" width="3rem" height="3rem"  style={{color: 'white'}} />
-                    </div>
-                  </a>
+              <div className='flex gap-[2rem]'>
+                <a href='https://wa.link/xb7yqg' target='blank'>
+                  <div className='whatsapp hover:scale-[1.2] transition-transform'>
+                    <Icon icon="mdi:whatsapp" width="3rem" height="3rem" style={{ color: 'white' }} />
+                  </div>
+                </a>
 
                 <a href="https://www.instagram.com/foodbasket_1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target='blank'>
                   <div className='instagram hover:scale-[1.2] transition-transform'>
-                  <Icon icon="hugeicons:instagram" width="3rem" height="3rem"  style={{color: 'white'}} />
+                    <Icon icon="hugeicons:instagram" width="3rem" height="3rem" style={{ color: 'white' }} />
                   </div>
                 </a>
-                </div>
+              </div>
+              <div className=' text-white text-[1.3rem] gap-4'> <p>+2349027670186</p>
+                <button className='bg-blue-800 p-2 rounded-xl hover:bg-orange-400 active:bg-red-600 transition-all' onClick={copying}>
+                  <Icon icon="si:copy-line" width="1.4rem" height="1.4rem" style={{ color: 'white' }} />
+                </button>
+                <span ref={copyRef} className='opacity-0 transition-opacity ml-3'>copied!</span>
               </div>
             </div>
-          </footer>
-          <hr/>
-          <div className='text-center italic text-[1rem] text-white'>
-            <p>&copy; 2024. All rights reserved.</p>
-          </div>  
+          </div>
+        </footer>
+        <hr />
+        <div className='text-center italic text-[1rem] text-white'>
+          <p>&copy; 2024. All rights reserved.</p>
         </div>
+      </div>
     </div>
   )
 }

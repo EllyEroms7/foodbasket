@@ -2,6 +2,7 @@ import React from 'react';
 import { useRef,useState,useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import { useRotate } from '../hooks/useGsap';
+import Link from 'next/link';
 
 
 export default function Nave() {
@@ -19,6 +20,7 @@ export default function Nave() {
           setShow(!show)
         }
       };
+
 
       const smoothScroll = (target) => {
         const element = document.querySelector(target);
@@ -55,7 +57,7 @@ export default function Nave() {
             </div>      
 
             {/* mobile nav button */}
-              <div className="mobile-nav-button z-10 hid" onClick={toggleNav} ref={navButtonRef}>
+              <div className="mobile-nav-button z-10 hid fixed right-0" onClick={toggleNav} ref={navButtonRef}>
                 <button>
                   <Icon icon="gg:options" width="1.5rem" height="1.5rem"  style={{color: "black"}} />
                 </button>
@@ -66,12 +68,12 @@ export default function Nave() {
                 <div className="desktop-nav">
                   <div className="desktop-nav-links">
                     <div className="home desktop-nav-link">
-                      <a href="/">
-                        <div className="icon">
-                      <Icon icon="iconamoon:home-bold" width="30" height="30"  style={{color: "black"}} />
-                      </div>
-                        <p className='text-center'>Home</p>
-                      </a>
+                      <Link href="/">
+                          <div className="icon">
+                        <Icon icon="iconamoon:home-bold" width="30" height="30"  style={{color: "black"}} />
+                        </div>
+                          <p className='text-center'>Home</p>
+                      </Link>
                     </div>
 
                     <div className="contact desktop-nav-link">
@@ -83,12 +85,12 @@ export default function Nave() {
                     </div>
 
                     <div className="catalogue desktop-nav-link">
-                      <a href="">
+                      <Link href="">
                         <div className="icon">
                         <Icon icon="ant-design:product-outlined" width="30" height="30"  style={{color: "black"}} />
                       </div>
                       <p>Products</p>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -101,24 +103,24 @@ export default function Nave() {
               <div className="nav-links">
         
                 <div className="nav-link explore">
-                  <a className="flex align-middle gap-[.7rem] bg-red-600" href="/">
+                  <Link className="flex align-middle gap-[.7rem] bg-red-600" href="/" onClick={toggleNav}>
                     <Icon icon="iconamoon:home-bold" width="70" height="70"  style={{color: "black"}} />
                     <p>Home</p>
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="nav-link contact">
-                <a href="#contact" className="flex align-middle gap-[.7rem] bg-red-600">
+                <a href="#contact" className="flex align-middle gap-[.7rem] bg-red-600" onClick={toggleNav}>
                       <Icon icon="solar:phone-broken" width="70" height="70"  style={{color: "black"}} />
                       <p>Contact</p>
                   </a>
                 </div>
 
                 <div className="nav-link catalogue">
-                <a href="" className="flex gap-[.7rem] align-middle bg-red-600">
+                <Link href="" className="flex gap-[.7rem] align-middle bg-red-600" onClick={toggleNav}>
                         <Icon icon="ant-design:product-outlined" width="70" height="70"  style={{color: "black"}} />
                       <p>Products</p>
-                      </a>
+                </Link>
                 </div>
               </div>
             </div>
