@@ -2,7 +2,6 @@
 import React, { useRef } from 'react';
 import './styles/contact.modules.scss';
 import { Icon } from '@iconify/react';
-import Form from './form';
 import ContactHeader from './contactHeader';
 
 
