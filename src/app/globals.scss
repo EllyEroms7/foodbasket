@@ -3,41 +3,34 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=SUSE:wght@100..800&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-
-//variables
-//colour
-$secondary-colour: #fca311ff;
-$white: #faf3f0ff;
-$primary-colour-1: #0fa3b1ff;
-$primary-colour: #ff3333ff;
-$black: #03191eff;
-$royal-blue: #4169e1;
-$gold: #ffd218;
-$mist: #f9fafb;
-//sizes
-$size-base: 1.5rem;
-$size-lg: 2rem;
-$size-sm: 1rem;
-$size-xl: 3rem;
-$size-xxl: 4rem;
-
-//fonts
-$roboto: "Roboto", sans-serif;
-$suse: "SUSE", sans-serif;
-$cursive: "Calligraffitti", cursive;
-$montserrat: "Montserrat", sans-serif;
-$lato: "Lato", sans-serif;
-$play: "Playfair Display", serif;
+@import url("https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap");
+// Define CSS variables
+:root {
+  --secondary-colour: #fca311ff;
+  --white: #faf3f0ff;
+  --primary-colour-1: #0fa3b1ff;
+  --primary-colour: #ff3333ff;
+  --black: #03191eff;
+  --royal-blue: #4169e1;
+  --gold: #ffd218;
+  --mist: #f9fafb;
+  --size-base: 1.5rem;
+  --size-lg: 2rem;
+  --size-sm: 1rem;
+  --size-xl: 3rem;
+  --size-xxl: 4rem;
+  --roboto: "Roboto", sans-serif;
+  --suse: "SUSE", sans-serif;
+  --cursive: "Calligraffitti", cursive;
+  --montserrat: "Montserrat", sans-serif;
+  --lato: "Lato", sans-serif;
+  --play: "Playfair Display", serif;
+  --amita: "Amita", serif;
+}
 
 html,
 body {

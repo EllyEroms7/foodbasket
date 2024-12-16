@@ -3,13 +3,15 @@ import React, { useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import './styles/home.modules.scss';
 import Nave from './nave';
+import Block from './block';
+import Title from './title';
 
 
 export default function Home() {
 
   const video = useRef(null);
   const [controls, setControl] = useState("icon-park-solid:play");
-  const [contolsColour, setControlColour] = useState("snow");
+  const [controlsColour, setControlColour] = useState("snow");
 
   const pause = () => {
     if (!video.current.paused) {
@@ -21,40 +23,54 @@ export default function Home() {
     }
   }
 
-  const controlOver = () => { setControlColour('orange') }
+  const controlOver = () => { setControlColour('rgb(255, 82, 111)') }
   const controlOut = () => { setControlColour('snow') }
 
+  let styles = {}
 
 
   return (
     <>
       <div id="home">
-        <Nave />
-        <div className="overflow-hidden">
+        <div className="overflow-x-hidden">
+
           {/*Video background */}
           <video autoPlay playsInline loop muted ref={video}>
             <source src="/video/intro.mp4" type="video/mp4" />
-            Your browser is very old
+            Your browser does not support the video tag.
           </video>
 
-          {/*heading*/}
-          <div className='text-white text-center title z-10'>
-            <h1>TASTE</h1>
-            <h2>GREAT QUALITY</h2>
-            <p>Why settle for less?</p>
+          {/* Navigation */}
+          <nav className='fixed top-0 left-0 right-0 py-3 mt-4 sm:py-4 px-0 justify-between z-10 flex items-center'>
+            <div className='logo w-[27vh] xl:w-[19vw] sm:ml-5 ml-3 mt-0'>
+              <Block />
+            </div>
+            <div className='mr-5 h-fit'>
+              <Nave />
+            </div>
+          </nav>
 
-            {/* <a href='https://wa.me/c/2349077630593' target='blank'>
-              <div className='catalogue-button'>
-                <button>View Catalogue</button>
-              </div>
-            </a> */}
+
+          {/* Controls  */}
+          <div className="heading opacity-95 absolute bottom-12 right-12">
+            <button
+              className="cursor-pointer transition duration-200 ease-in-out hover:scale-110"
+              onClick={pause}
+              onMouseOver={controlOver}
+              onMouseOut={controlOut}
+            >
+              <Icon
+                icon={controls}
+                width="2.3rem"
+                height="2.3rem"
+                style={{ color: controlsColour }}
+              />
+            </button>
           </div>
 
-          {/* controls  */}
-          <div className="heading relative opacity-95 right-[-10px] bottom-[160px]">
-
-            <button className="" onClick={pause} onMouseOver={controlOver} onMouseOut={controlOut}><Icon icon={controls} width="2.3rem" height="2.3rem" style={{ color: contolsColour }} /></button>
-
+          {/* Title */}
+          <div className='sm:w-[70%] w-[90%] 2xl:w-[70%] mx-auto h-[80vh] sm:h-[95vh] flex justify-center items-center relative'>
+            <Title />
           </div>
         </div> {/*container ending div*/}
       </div>

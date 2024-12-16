@@ -1,25 +1,11 @@
-// import { ReactLenis } from "lenis";
+import { ReactLenis } from 'lenis/react'
 
-// function SmoothScrolling({ children }) {
-//   return (
-//     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}>
-//       {children}
-//     </ReactLenis>
-//   );
-// }
-
-// export default SmoothScrolling;
-
-import { ReactLenis, useLenis } from 'lenis/react'
-
-function Smooth( {children} ) {
-  const lenis = useLenis
-
+function Smooth({ children }) {
   return (
     <ReactLenis root>
-      { children }
+      {children}
     </ReactLenis>
-  )
+  );
 }
 
 export default Smooth;

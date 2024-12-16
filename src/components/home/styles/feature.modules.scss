@@ -1,14 +1,14 @@
 @import "../../../app/globals.scss";
 
 #feature {
-  background-color: $mist;
+  background-color: var(--mist);
 
   h1 {
-    font-family: $roboto;
+    font-family: var(--roboto);
     font-size: clamp(2rem, 2rem + 3.33vw, 5rem);
   }
   span {
-    color: $secondary-colour;
+    color: var(--secondary-colour);
     animation: colour 3.5s infinite alternate;
   }
 
@@ -169,10 +169,10 @@
 
 @keyframes colour {
   0% {
-    color: $primary-colour;
+    color: var(--primary-colour);
   }
   100% {
-    color: $royal-blue;
+    color: var(--royal-blue);
   }
 }
 

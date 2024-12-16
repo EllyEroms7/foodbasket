@@ -1,110 +1,158 @@
-import React from 'react';
-import { useRef, useState, useEffect } from 'react';
-import { Icon } from '@iconify/react';
+'use client';
 import Link from 'next/link';
+import NavButton from '../rive/navButton';
+import React, { useEffect, useRef, useState } from 'react';
+import { Icon } from '@iconify/react';
+import Lenis from 'lenis';
+import { motion, useAnimationControls } from 'motion/react'
 
 
 export default function Nave() {
-  const [show, setShow] = useState(false);
-  const navRef = useRef(null);
-  const navButtonRef = useRef(null);
-  const toggleNav = () => {
-    if (navRef.current) {
-      navRef.current.classList.toggle('active')
-      navButtonRef.current.classList.toggle('active')
-      setShow(!show)
+  const lenis = useRef(null);
+  const [status, setStatus] = useState(false)
+  const control = useAnimationControls()
+  const handleClick = () => {
+    if (!status) {
+      control.start({
+        x: 0
+      })
+      setStatus(true)
+    } else if (status) {
+      control.start({
+        x: 100
+      })
+      setStatus(false)
+    }
+  }
+
+  useEffect(() => {
+    lenis.current = new Lenis({
+      duration: 0.6, // Duration of the scroll
+      easing: (t) => 1 - Math.pow(1 - t, 3), // Easing function
+      smooth: true,
+      smoothTouch: true,
+    });
+
+    const animate = (time) => {
+      lenis.current.raf(time);
+      requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+
+    return () => {
+      lenis.current.destroy();
+    };
+  }, []);
+  //works perfect for desktop and tablet
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      lenis.current.scrollTo(element);
     }
   };
 
 
-  // const smoothScroll = (target) => {
-  //   const element = document.querySelector(target);
-  //   if (element) {
-  //     element.scrollIntoView({
-  //       behavior: 'smooth',
-  //     });
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const id = document.querySelectorAll('a[href^="#"]')
-  //   id.forEach((id) => {
-  //     id.addEventListener('click', (e) => {
-  //       e.preventDefault();
-  //       smoothScroll(id.getAttribute('href'))
-  //     })
-  //   })
-  //   return () => {
-  //     id.forEach(id => id.removeEventListener('click', smoothScroll));
-  //   };
-  // }, [])
-
-
   return (
     <>
+      {/* Nav Bar */}
       <div className=" overflow-hidden">
-        {/* Nav Bar */}
-        <div className="flex p-2 justify-between">
 
-          {/* mobile nav button */}
-          <div className="mobile-nav-button z-10 hid fixed right-0" onClick={toggleNav} ref={navButtonRef}>
-            <button>
-              <Icon icon="gg:options" width="1.5rem" height="1.5rem" style={{ color: "black" }} />
-            </button>
-          </div>
-
-          {/* desktop navigation     */}
-          <nav className="desktop z-10 fixed right-20 top-5">
+        {/* desktop navigation*/}
+        <div className="sm:flex p-2 sm:justify-between hidden">
+          <div className="desktop">
             <div className="desktop-nav">
               <div className="desktop-nav-links">
-                <div className="home desktop-nav-link">
+                <div className="home desktop-nav-link text-[1.3rem] xl:text-[1.3vw]">
                   <Link href="/">
-                    <p className='text-center'>Home</p>
+                    <p className='text-center'>HOME</p>
                   </Link>
                 </div>
 
-                <div className="contact desktop-nav-link">
-                  <a href="#contact">
-                    <p className='text-center'>Contact</p>
+                <div className="products desktop-nav-link text-[1.3rem] xl:text-[1.3vw]">
+                  <Link href="#contact" onClick={() => scrollTo('contact')}>
+                    <p className='text-center'>CONTACT</p>
+                  </Link>
+                </div>
+
+                <div className="product desktop-nav-link text-[1rem] xl:text-[1vw] p-3 px-4 rounded-full 2xl:p-5 2xl:px-6">
+                  <a href="">
+                    <p className='text-center'>PRODUCTS</p>
                   </a>
-                </div>
-
-                <div className="catalogue desktop-nav-link">
-                  <Link href="">
-                    <p className='text-center'>Products</p>
-                  </Link>
                 </div>
               </div>
             </div>
-          </nav>
+          </div>
         </div>
 
         {/* mobile navigation */}
-        <div className="mobile hid" ref={navRef}>
-          <div className="mobile-nav shadow-2xl">
-            <div className="nav-links">
+        <div className='flex flex-col items-center'>
+          <div className='h-[15vw] w-[15vw] sm:hidden sm:w-0 sm:h-0 rounded-full' onTouchStart={handleClick}>
+            <NavButton />
+          </div>
 
-              <div className="nav-link explore">
-                <Link className="flex align-middle gap-[.7rem] bg-red-600" href="/" onClick={toggleNav}>
-                  <Icon icon="iconamoon:home-bold" width="70" height="70" style={{ color: "black" }} />
-                  <p>Home</p>
-                </Link>
-              </div>
+          <div className='sm:hidden sm:w-0 sm:h-0 block options fixed top-24'>
+            <motion.div
+              variants={{
+                initial: {
+                  x: 100,
+                },
+                slide: {
+                  x: 0,
+                }
+              }}
+              initial='initial'
+              animate={control}
+              transition={{
+                duration: 0.5,
+                delay: .8,
+                ease: 'backOut'
+              }}
+            >
+              <Link href="/">
+                <Icon icon="lsicon:home-filled" width="26" height="26" style={{ color: '#ffffff' }} />
+              </Link>
+            </motion.div>
 
-              <div className="nav-link contact">
-                <a href="#contact" className="flex align-middle gap-[.7rem] bg-red-600" onClick={toggleNav}>
-                  <Icon icon="solar:phone-broken" width="70" height="70" style={{ color: "black" }} />
-                  <p>Contact</p>
-                </a>
-              </div>
+            <motion.div variants={{
+              initial: {
+                x: 100,
+              },
+              slide: {
+                x: 0,
+              }
+            }}
+              initial='initial'
+              animate={control}
+              transition={{
+                duration: 0.5,
+                delay: .9,
+                ease: 'backOut'
+              }}>
+              <Link href=''>
+                <Icon icon="teenyicons:cart-solid" width="26" height="26" style={{ color: '#ffffff' }} />
+              </Link>
+            </motion.div>
 
-              <div className="nav-link catalogue">
-                <Link href="" className="flex gap-[.7rem] align-middle bg-red-600" onClick={toggleNav}>
-                  <Icon icon="ant-design:product-outlined" width="70" height="70" style={{ color: "black" }} />
-                  <p>Products</p>
-                </Link>
-              </div>
-            </div>
+            <motion.div variants={{
+              initial: {
+                x: 100,
+              },
+              slide: {
+                x: 0,
+              }
+            }}
+              initial='initial'
+              animate={control}
+              transition={{
+                duration: 0.5,
+                delay: 1,
+                ease: 'backOut'
+              }}>
+              <Link href="#contact" onClick={() => scrollTo('contact')}>
+                <Icon icon="mingcute:phone-fill" width="26" height="26" style={{ color: '#ffffff' }} />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>
