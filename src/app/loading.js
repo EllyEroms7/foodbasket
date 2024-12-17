@@ -1,31 +1,43 @@
 'use client';
-import React from 'react';
-import { useRive } from '@rive-app/react-canvas';
+import React, { useState, useEffect } from 'react';
+import { motion, useAnimationControls } from 'motion/react';
 
 
 const Loading = () => {
-    const { rive, RiveComponent } = useRive({
-        autoplay: true,
-        stateMachines: 'main',
-        src: '/rive/loader.riv',
+    const [loading, setLoading] = useState(true)
+    const controls = useAnimationControls()
+    useEffect(() => {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                controls.start({
+                    y: -1300,
+                })
+                setTimeout(() => {
+                    setLoading(false)
+                }, 100)
+            }, 1000)
+        })
     })
-
     return (
-
-        <div
-            initial={{
-                y: 0
-            }} exit={{
-                y: -200
-            }} transition={{
-                duration: 0.5,
-                ease: 'easeOut'
-            }} className="flex justify-center items-center w-screen h-screen"
-        >
-            <div className="flex flex-col justify-center items-center">
-                <RiveComponent className="w-[50vw] h-[50vh]" />
-            </div>
-        </div>
+        <>
+            {loading && (
+                <motion.div
+                    initial={{
+                        y: 0,
+                    }}
+                    animate={controls}
+                    transition={{
+                        duration: 0.6,
+                        ease: 'easeOut',
+                    }}
+                    className="flex justify-center fixed bg-[#fffafa] z-50 items-center w-screen h-screen"
+                >
+                    <div className="flex flex-col justify-center items-center w-[60vw] h-[60vh]">
+                        <iframe src="https://lottie.host/embed/46181c0e-fc1a-4f2e-ad43-94ba7e4dd372/bqAGUdWB1b.lottie" className=" w-full h-full"></iframe>
+                    </div>
+                </motion.div>
+            )}
+        </>
     );
 };
 

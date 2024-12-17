@@ -56,30 +56,54 @@ export default function Nave() {
   return (
     <>
       {/* Nav Bar */}
-      <div className=" overflow-hidden">
+      <div className="">
 
         {/* desktop navigation*/}
         <div className="sm:flex p-2 sm:justify-between hidden">
           <div className="desktop">
             <div className="desktop-nav">
               <div className="desktop-nav-links">
-                <div className="home desktop-nav-link text-[1.3rem] xl:text-[1.3vw]">
+                <motion.div initial={{
+                  opacity: 0,
+                  y: 50
+                }} animate={{
+                  opacity: 1,
+                  y: 0,
+                }} transition={{
+                  delay: 5
+                }} className="home desktop-nav-link text-[1.3rem] xl:text-[1.3vw]">
                   <Link href="/">
                     <p className='text-center'>HOME</p>
                   </Link>
-                </div>
+                </motion.div>
 
-                <div className="products desktop-nav-link text-[1.3rem] xl:text-[1.3vw]">
+                <motion.div initial={{
+                  opacity: 0,
+                  y: 50
+                }} animate={{
+                  opacity: 1,
+                  y: 0,
+                }} transition={{
+                  delay: 5 + .12
+                }} className="products desktop-nav-link text-[1.3rem] xl:text-[1.3vw]">
                   <Link href="#contact" onClick={() => scrollTo('contact')}>
                     <p className='text-center'>CONTACT</p>
                   </Link>
-                </div>
+                </motion.div>
 
-                <div className="product desktop-nav-link text-[1rem] xl:text-[1vw] p-3 px-4 rounded-full 2xl:p-5 2xl:px-6">
+                <motion.div initial={{
+                  opacity: 0,
+                  y: 50
+                }} animate={{
+                  opacity: 1,
+                  y: 0,
+                }} transition={{
+                  delay: 5 + .22
+                }} className="product desktop-nav-link text-[1rem] xl:text-[1vw] p-3 px-4 rounded-full 2xl:p-5 2xl:px-6">
                   <a href="">
                     <p className='text-center'>PRODUCTS</p>
                   </a>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -149,7 +173,7 @@ export default function Nave() {
                 delay: 1,
                 ease: 'backOut'
               }}>
-              <Link href="#contact" onClick={() => scrollTo('contact')}>
+              <Link href="#contact">
                 <Icon icon="mingcute:phone-fill" width="26" height="26" style={{ color: '#ffffff' }} />
               </Link>
             </motion.div>

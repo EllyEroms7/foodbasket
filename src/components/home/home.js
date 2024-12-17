@@ -26,8 +26,6 @@ export default function Home() {
   const controlOver = () => { setControlColour('rgb(255, 82, 111)') }
   const controlOut = () => { setControlColour('snow') }
 
-  let styles = {}
-
 
   return (
     <>

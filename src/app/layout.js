@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import { Suspense } from 'react';
 import Loading from "./loading";
 import "./globals.scss";
 import Smooth from '@/components/smooth';
@@ -25,16 +24,16 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <head></head>
-      <Suspense fallback={<Loading />}>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased text-[100%]`}
-        >
-          <Smooth>
-            {children}
-          </Smooth>
-        </body>
-      </Suspense>
+      <body>
+        <Loading />
+      </body>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-[100%]`}
+      >
+        <Smooth>
+          {children}
+        </Smooth>
+      </body>
     </html>
   );
 }
