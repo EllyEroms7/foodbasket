@@ -8,6 +8,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montaga&display=swap");
 // Define CSS variables
 :root {
   --secondary-colour: #fca311ff;
@@ -30,6 +31,7 @@
   --lato: "Lato", sans-serif;
   --play: "Playfair Display", serif;
   --amita: "Amita", serif;
+  --montaga: "Montaga", serif;
 }
 
 html,
@@ -52,4 +54,17 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.5);
+}
+
+.loading {
+  transform: translateY(0%);
+  opacity: 1;
+  animation: leave 0.5s ease-out 2.5s;
+}
+
+@keyframes leave {
+  to {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
 }

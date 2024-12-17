@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import Scroll from '../rive/scroll';
 
 const Title = () => {
-    const sentence = 'TASTE THE ART OF QUALITY BAKING'
+    const sentence = 'Taste The Art Of Quality Baking'
     return (
         <div className=''>
             <div className='flex flex-wrap gap-[0.6rem] sm:gap-[1rem] 2xl:gap-[1.2vw] w-full mx-auto sm:text-[5rem] 2xl:text-[5vw] lg:text-[6rem] xl:text-[6rem] text-[3rem] justify-center items-center title'>

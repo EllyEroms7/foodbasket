@@ -69,7 +69,7 @@ export default function Home() {
           </div>
 
           {/* Title */}
-          <div className='sm:w-[70%] w-[90%] 2xl:w-[70%] mx-auto h-[80vh] sm:h-[95vh] flex justify-center items-center relative'>
+          <div className='sm:w-[70%] lg:w-[80%] w-[90%] 2xl:w-[70%] mx-auto h-[80vh] sm:h-[95vh] flex justify-center items-center relative'>
             <Title />
           </div>
         </div> {/*container ending div*/}

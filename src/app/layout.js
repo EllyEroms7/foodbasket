@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
+import { Suspense } from 'react';
+import Loading from "./loading";
 import "./globals.scss";
-import Contact from "../components/home/contact";
 import Smooth from '@/components/smooth';
 
 
@@ -16,21 +17,24 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Food Basket Confectionary Ventures",
+  title: "Food Basket Confectionery Ventures",
   description: "We sell with bread, cake and pastries",
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-[100%]`}
-      >
-        <Smooth>
-          {children}
-        </Smooth>
-        <Contact />
-      </body>
+      <head></head>
+      <Suspense fallback={<Loading />}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased text-[100%]`}
+        >
+          <Smooth>
+            {children}
+          </Smooth>
+        </body>
+      </Suspense>
     </html>
   );
 }

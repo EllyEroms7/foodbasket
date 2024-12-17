@@ -1,13 +1,17 @@
-
+'use client';
 import Home from "@/components/home/home";
 import Feature from "@/components/home/feature";
+import Contact from "@/components/home/contact";
+import Loading from "./loading";
 
-export default function root() {
+export default function home() {
   return (
-   <>
-      <Home/>
-      <Feature/>
-      
-   </>
+    <>
+      <div>
+        <Home />
+        <Feature />
+        <Contact />
+      </div>
+    </>
   );
 }
