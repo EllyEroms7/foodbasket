@@ -1,0 +1,12 @@
+.card {
+  padding-top: 10%;
+  padding: 8%;
+  .text {
+    margin-bottom: 2rem;
+    .head {
+      color: var(--primary-colour);
+      font-family: var(--montaga);
+      font-weight: 600;
+    }
+  }
+}

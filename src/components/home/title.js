@@ -20,7 +20,7 @@ const Title = () => {
                             y: 0,
                         }}
                         transition={{
-                            delay: index * 0.08 + 5,
+                            delay: index * 0.08 + 2,
                             duration: 0.3,
                             ease: 'easeOut',
                         }}
@@ -39,7 +39,7 @@ const Title = () => {
                         x: 0,
                     }}
                     transition={{
-                        delay: 7 * 0.08 + 5,
+                        delay: 7 * 0.08 + 2,
                         duration: 0.4,
                         ease: 'easeOut'
                     }}

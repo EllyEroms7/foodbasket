@@ -1,0 +1,17 @@
+.card {
+  margin-top: 6rem;
+  .text {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    color: snow;
+    background-image: url("/images/health.jpg");
+    background-position: 100% 100%;
+    background-size: cover;
+    .head {
+      font-family: var(--montaga);
+      font-weight: 600;
+    }
+  }
+}

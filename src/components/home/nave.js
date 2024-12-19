@@ -44,7 +44,6 @@ export default function Nave() {
       lenis.current.destroy();
     };
   }, []);
-  //works perfect for desktop and tablet
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -70,7 +69,7 @@ export default function Nave() {
                   opacity: 1,
                   y: 0,
                 }} transition={{
-                  delay: 5
+                  delay: 2
                 }} className="home desktop-nav-link text-[1.3rem] xl:text-[1.3vw]">
                   <Link href="/">
                     <p className='text-center'>HOME</p>
@@ -84,7 +83,7 @@ export default function Nave() {
                   opacity: 1,
                   y: 0,
                 }} transition={{
-                  delay: 5 + .12
+                  delay: 2 + .12
                 }} className="products desktop-nav-link text-[1.3rem] xl:text-[1.3vw]">
                   <Link href="#contact" onClick={() => scrollTo('contact')}>
                     <p className='text-center'>CONTACT</p>
@@ -98,7 +97,7 @@ export default function Nave() {
                   opacity: 1,
                   y: 0,
                 }} transition={{
-                  delay: 5 + .22
+                  delay: 2 + .22
                 }} className="product desktop-nav-link text-[1rem] xl:text-[1vw] p-3 px-4 rounded-full 2xl:p-5 2xl:px-6">
                   <a href="">
                     <p className='text-center'>PRODUCTS</p>
@@ -111,7 +110,7 @@ export default function Nave() {
 
         {/* mobile navigation */}
         <div className='flex flex-col items-center'>
-          <div className='h-[15vw] w-[15vw] sm:hidden sm:w-0 sm:h-0 rounded-full' onTouchStart={handleClick}>
+          <div className='h-[14vw] w-[14vw] sm:hidden sm:w-0 sm:h-0 rounded-full' onTouchStart={handleClick}>
             <NavButton />
           </div>
 

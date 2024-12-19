@@ -39,8 +39,8 @@ export default function Home() {
           </video>
 
           {/* Navigation */}
-          <nav className='fixed top-0 left-0 right-0 py-3 mt-4 sm:py-4 px-0 justify-between z-10 flex items-center'>
-            <div className='logo w-[27vh] xl:w-[19vw] sm:ml-5 ml-3 mt-0'>
+          <nav className='fixed top-0 left-0 right-0 py-3 mt-3 sm:py-4 px-0 justify-between z-10 flex items-center'>
+            <div className='logo w-[37vh] xl:w-[19vw] sm:ml-5 ml-3 mt-0'>
               <Block />
             </div>
             <div className='mr-5 h-fit'>

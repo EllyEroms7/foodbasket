@@ -11,10 +11,11 @@ const Loading = () => {
             setTimeout(() => {
                 controls.start({
                     y: -1300,
+                    opacity: 0
                 })
                 setTimeout(() => {
                     setLoading(false)
-                }, 100)
+                }, 600)
             }, 1000)
         })
     })
@@ -24,11 +25,13 @@ const Loading = () => {
                 <motion.div
                     initial={{
                         y: 0,
+                        opacity: 1
+
                     }}
                     animate={controls}
                     transition={{
-                        duration: 0.6,
-                        ease: 'easeOut',
+                        duration: 0.5,
+                        ease: 'easeOut'
                     }}
                     className="flex justify-center fixed bg-[#fffafa] z-50 items-center w-screen h-screen"
                 >

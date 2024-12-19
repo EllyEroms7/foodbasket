@@ -1,6 +1,6 @@
 import Home from "@/components/home/home";
-import Feature from "@/components/home/feature";
-import Contact from "@/components/home/contact";
+import Feature from "@/components/features/feature";
+import Contact from "@/components/features/contact/contact";
 
 export default function home() {
   return (
@@ -8,7 +8,6 @@ export default function home() {
       <div>
         <Home />
         <Feature />
-        <Contact />
       </div>
     </>
   );

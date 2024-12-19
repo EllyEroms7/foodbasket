@@ -1,6 +1,6 @@
 .svg .svgPath {
   fill: transparent;
-  stroke: #fff;
+  stroke: #fc4274;
   stroke-width: 0.7;
   stroke-dasharray: 210;
   stroke-dashoffset: 210;
@@ -8,9 +8,6 @@
 }
 .svg {
   transition: scale 0.3s ease-in-out;
-}
-.svg:hover {
-  scale: 1.01;
 }
 
 @keyframes draw {
@@ -22,7 +19,7 @@
     fill: transparent;
   }
   100% {
-    fill: #fff;
+    fill: #fc4274;
     stroke-dashoffset: 0;
   }
 }
