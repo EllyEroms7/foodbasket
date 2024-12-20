@@ -12,23 +12,12 @@
 // Define CSS variables
 :root {
   --secondary-colour: #fca311ff;
-  --white: #faf3f0ff;
+  --white: #fffaff;
   --primary-colour-1: rgb(0, 234, 255);
   --primary-colour: #ff0043;
-  --black: #03191eff;
-  --royal-blue: #4169e1;
   --gold: #ffd218;
   --mist: #f9fafb;
-  --size-base: 1.5rem;
-  --size-lg: 2rem;
-  --size-sm: 1rem;
-  --size-xl: 3rem;
-  --size-xxl: 4rem;
-  --roboto: "Roboto", sans-serif;
-  --cursive: "Calligraffitti", cursive;
   --montserrat: "Montserrat", sans-serif;
-  --lato: "Lato", sans-serif;
-  --play: "Playfair Display", serif;
   --amita: "Amita", serif;
   --montaga: "Montaga", serif;
 }
@@ -55,6 +44,13 @@ body {
   background: rgba(0, 0, 0, 0.5);
 }
 
+.instagram:hover div,
+.instagram:hover p,
+.whatsapp:hover div,
+.whatsapp:hover p {
+  animation: roll 0.7s ease-in-out 1;
+}
+
 .loading {
   transform: translateY(0%);
   opacity: 1;
@@ -65,5 +61,29 @@ body {
   to {
     transform: translateY(-200%);
     opacity: 0;
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  35% {
+    transform: translateY(-30%);
+  }
+  50% {
+    transform: translateY(140%);
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  52% {
+    opacity: 0;
+    transform: translateY(-140%);
+  }
+  100% {
+    transform: translateY(0%);
   }
 }
