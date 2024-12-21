@@ -23,7 +23,7 @@ export default function Home() {
     }
   }
 
-  const controlOver = () => { setControlColour('rgb(255, 82, 111)') }
+  const controlOver = () => { setControlColour('rgb(255, 4, 3)') }
   const controlOut = () => { setControlColour('snow') }
 
 
@@ -34,6 +34,7 @@ export default function Home() {
 
           {/*Video background */}
           <video autoPlay playsInline loop muted ref={video}>
+            <source src="/video/intro.webm" type="video/webm" />
             <source src="/video/intro.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -59,8 +60,8 @@ export default function Home() {
             >
               <Icon
                 icon={controls}
-                width="2.3rem"
-                height="2.3rem"
+                width="2.5vw"
+                height="2.5vw"
                 style={{ color: controlsColour }}
               />
             </button>

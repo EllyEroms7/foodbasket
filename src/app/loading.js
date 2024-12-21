@@ -1,47 +1,50 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { motion, useAnimationControls } from 'motion/react';
-
 
 const Loading = () => {
-    const [loading, setLoading] = useState(true)
-    const controls = useAnimationControls()
-    useEffect(() => {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                controls.start({
-                    y: -1300,
-                    opacity: 0
-                })
-                setTimeout(() => {
-                    setLoading(false)
-                }, 600)
-            }, 1000)
-        })
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        setLoading(false)
+      }, 700)
     })
-    return (
-        <>
-            {loading && (
-                <motion.div
-                    initial={{
-                        y: 0,
-                        opacity: 1
-
-                    }}
-                    animate={controls}
-                    transition={{
-                        duration: 0.5,
-                        ease: 'easeOut'
-                    }}
-                    className="flex justify-center fixed bg-[#fffafa] z-50 items-center w-screen h-screen"
-                >
-                    <div className="flex flex-col justify-center items-center w-[60vw] h-[60vh]">
-                        {/* <iframe src="https://lottie.host/embed/46181c0e-fc1a-4f2e-ad43-94ba7e4dd372/bqAGUdWB1b.lottie" className=" w-full h-full"></iframe> */}
-                    </div>
-                </motion.div>
-            )}
-        </>
-    );
+  })
+  return (
+    <>
+      <div className={`flex flex-col gap-[3vh] justify-center fixed bg-[#ffffff] z-50 items-center w-screen h-screen loading-container ${!loading ? 'fade-out' : ''}`}>
+        <div className="spinner">
+        </div>
+        <style jsx>{`
+          .loading-container {
+            transform:translateY(0%);
+            transition: opacity 0.5s ease-out, visibility 0.5s, transform .5s ease-out;
+          }
+          .fade-out {
+            transform:translateY(-100%);
+            opacity: 0; /* Fades out smoothly */
+            visibility: hidden; /* Hides after fading */
+          }
+          .spinner {
+            border: .23vw solid #d7d7d7;
+            border-top: .23vw solid #ff0403;
+            border-radius: 50%;
+            width: 10vw;
+            height: 10vw;
+            animation: spin .7s linear infinite;
+          }
+          @keyframes spin {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        `}</style>
+      </div>
+    </>
+  );
 };
 
 export default Loading;
